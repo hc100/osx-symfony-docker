@@ -1,9 +1,9 @@
 ## osx symfony docker
 ==================
 
-Mac OSX上でvirtualbox+dockerな環境でsymfony(LAMP)を動かすためのsandbox
+Mac OSX上でvirtualbox+dockerな環境でsymfony(LAMP)を動かすための設定
 
-ディレクトリ構造はsymfony2 3.0を想定
+ディレクトリ構造はsymfony2のバージョン3.0を想定
 
 ### セットアップ方法
 
@@ -14,6 +14,12 @@ symfonyのキャッシュディレクトリを削除する
 ```
 
 virtualbox内でマウントされる共有用のOSX上のファイル(/Users配下)は全てdockerユーザ権限となってしまい、コンテナ内のapacheが書き込めないためこれらのディレクトリはホスト上から削除して、コンテナ内で用意する仕組みになっている
+
+mysqlのデータ永続化のためディレクトリ。コンテナ内の/var/lib/mysqlにマウントされる
+
+```
+% mkdir var/db
+```
 
 ### 実行方法
 
