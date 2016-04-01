@@ -6,7 +6,7 @@ RUN yum install wget -y
 RUN wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm ;\
     wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm ;\
     rpm -ivh epel-release-6-8.noarch.rpm remi-release-6.rpm
-RUN yum --enablerepo=remi-php55 install httpd httpd-devel php php-devel php-pear php-mysql php-gd php-mbstring php-pecl-imagick php-pecl-memcache -y
+RUN yum --enablerepo=remi-php55 install httpd httpd-devel php php-devel php-pear php-mysql php-gd php-mbstring php-pecl-imagick php-pecl-memcache php-intl -y
 
 # /var/www に symfony app をマウントすることによって /var/www/web が
 # DocumentRoot になるため、修正する
