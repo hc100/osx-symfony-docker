@@ -20,6 +20,9 @@ RUN sed -ri "s|;date.timezone =|date.timezone = Asia/Tokyo|" /etc/php.ini
 RUN mkdir -p /tmp/var/www/var/cache
 RUN mkdir -p /tmp/var/www/var/logs
 
+# phpコマンドをapache権限で実行できるようにapacheユーザのシェルを変更
+RUN chsh -s /bin/bash apache
+
 EXPOSE 80
 
 RUN mkdir -p /usr/local/bin/
