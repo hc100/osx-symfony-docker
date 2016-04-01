@@ -11,6 +11,7 @@ RUN yum --enablerepo=remi-php55 install httpd httpd-devel php php-devel php-pear
 # /var/www に symfony app をマウントすることによって /var/www/web が
 # DocumentRoot になるため、修正する
 RUN sed -ri "s|/var/www/html|/var/www/web|" /etc/httpd/conf/httpd.conf
+RUN sed -ri "s|AllowOverride None|AllowOverride All|" /etc/httpd/conf/httpd.conf
 
 # php の設定を更新
 RUN sed -ri "s|;date.timezone =|date.timezone = Asia/Tokyo|" /etc/php.ini
